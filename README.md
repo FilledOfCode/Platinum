@@ -3,4 +3,4 @@
 
 Script for content based image classification using the bag of visual words approach.
 
-The script is a Pyt
+The script is a Python version of [phow_ca
