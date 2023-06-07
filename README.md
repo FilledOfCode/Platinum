@@ -8,4 +8,4 @@ The script is a Python version of [phow_caltech101.m][1], a 'one file' example s
 Like the original Matlab version this Python script achives the same (State-of-the-Art in 2008) average accuracy of around 65% as the original file:
 
 - PHOW features (dense multi-scale SIFT descriptors)
-- Elk
+- Elkan k-means for
