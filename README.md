@@ -9,4 +9,4 @@ Like the original Matlab version this Python script achives the same (State-of-t
 
 - PHOW features (dense multi-scale SIFT descriptors)
 - Elkan k-means for fast visual word dictionary construction
-- Spat
+- Spatial histogr
