@@ -9,4 +9,5 @@ Like the original Matlab version this Python script achives the same (State-of-t
 
 - PHOW features (dense multi-scale SIFT descriptors)
 - Elkan k-means for fast visual word dictionary construction
-- Spatial histograms as image descripto
+- Spatial histograms as image descriptors
+- A homogen
