@@ -10,4 +10,5 @@ Like the original Matlab version this Python script achives the same (State-of-t
 - PHOW features (dense multi-scale SIFT descriptors)
 - Elkan k-means for fast visual word dictionary construction
 - Spatial histograms as image descriptors
-- A homogeneous kernel map to transform a Chi2 support vector machine (SVM) into a 
+- A homogeneous kernel map to transform a Chi2 support vector machine (SVM) into a linear one
+- Li
