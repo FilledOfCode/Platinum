@@ -11,4 +11,4 @@ Like the original Matlab version this Python script achives the same (State-of-t
 - Elkan k-means for fast visual word dictionary construction
 - Spatial histograms as image descriptors
 - A homogeneous kernel map to transform a Chi2 support vector machine (SVM) into a linear one
-- Liblinear SVM (in
+- Liblinear SVM (instead of th
