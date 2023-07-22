@@ -13,4 +13,4 @@ Like the original Matlab version this Python script achives the same (State-of-t
 - A homogeneous kernel map to transform a Chi2 support vector machine (SVM) into a linear one
 - Liblinear SVM (instead of the Pegasos SVM of the Matlab script)
 
-If you need 2016 state of the art performance for
+If you need 2016 state of the art performance for image classi
