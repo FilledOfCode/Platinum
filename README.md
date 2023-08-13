@@ -14,3 +14,6 @@ Like the original Matlab version this Python script achives the same (State-of-t
 - Liblinear SVM (instead of the Pegasos SVM of the Matlab script)
 
 If you need 2016 state of the art performance for image classification check out [keras][8].
+
+
+The code al
