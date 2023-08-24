@@ -16,4 +16,4 @@ Like the original Matlab version this Python script achives the same (State-of-t
 If you need 2016 state of the art performance for image classification check out [keras][8].
 
 
-The code al
+The code also works wit
