@@ -16,4 +16,4 @@ Like the original Matlab version this Python script achives the same (State-of-t
 If you need 2016 state of the art performance for image classification check out [keras][8].
 
 
-The code also works with other datasets if the images are organized like in the Calltech data set, where all images belonging to one class a
+The code also works with other datasets if the images are organized like in the Calltech data set, where all images belonging to one class are in th
