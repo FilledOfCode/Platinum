@@ -19,4 +19,5 @@ If you need 2016 state of the art performance for image classification check out
 The code also works with other datasets if the images are organized like in the Calltech data set, where all images belonging to one class are in the same folder:
     
     .
-    |-- path_to_folders_with_
+    |-- path_to_folders_with_images
+    |
