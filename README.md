@@ -22,4 +22,4 @@ The code also works with other datasets if the images are organized like in the 
     |-- path_to_folders_with_images
     |    |-- class1
     |    |    |-- some_image1.jpg
-  
+    |    |    |--
