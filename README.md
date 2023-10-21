@@ -23,4 +23,5 @@ The code also works with other datasets if the images are organized like in the 
     |    |-- class1
     |    |    |-- some_image1.jpg
     |    |    |-- some_image1.jpg
-    |    |    |-- some_image1
+    |    |    |-- some_image1.jpg
+    |  
