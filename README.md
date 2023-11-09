@@ -28,4 +28,5 @@ The code also works with other datasets if the images are organized like in the 
     |    |-- class2
     |    |    └ ...
     |    |-- class3
-   
+        ...
+  
