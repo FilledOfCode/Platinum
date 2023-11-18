@@ -31,4 +31,4 @@ The code also works with other datasets if the images are organized like in the 
         ...
     |    └-- classN
 
-There are no constraints for the n
+There are no constraints for the names of the f
