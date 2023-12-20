@@ -35,4 +35,4 @@ There are no constraints for the names of the files or folders. File extensions 
 
 Requisite:
 
-- [VLFeat with a Pyth
+- [VLFeat with a Python wrapper][2]
