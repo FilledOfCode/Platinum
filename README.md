@@ -37,4 +37,4 @@ Requisite:
 
 - [VLFeat with a Python wrapper][2]
 - [scikit-learn][5] to replace VLFeat ML functions that don't have a Python wrapper yet. 
-- [The Caltec
+- [The Caltech101 datase
