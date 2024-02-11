@@ -39,4 +39,4 @@ Requisite:
 - [scikit-learn][5] to replace VLFeat ML functions that don't have a Python wrapper yet. 
 - [The Caltech101 dataset][3]
 
-[5]: htt
+[5]: http://scikit-lea
