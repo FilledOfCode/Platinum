@@ -40,4 +40,5 @@ Requisite:
 - [The Caltech101 dataset][3]
 
 [5]: http://scikit-learn.org/stable/
-[4]: http://www.vision.caltech.edu/Image_Datasets/Cal
+[4]: http://www.vision.caltech.edu/Image_Datasets/Caltech101/
+[2]: h
