@@ -44,4 +44,5 @@ Requisite:
 [2]: https://pypi.python.org/pypi/pyvlfeat/
 [3]: http://www.vision.caltech.edu/Image_Datasets/Caltech101/101_ObjectCategories.tar.gz
 [1]: http://www.vlfeat.org/applications/caltech-101-code.html
-[6]: http://www.vlfeat.org/index.htm
+[6]: http://www.vlfeat.org/index.html
+[7]: https://gi
