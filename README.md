@@ -45,4 +45,5 @@ Requisite:
 [3]: http://www.vision.caltech.edu/Image_Datasets/Caltech101/101_ObjectCategories.tar.gz
 [1]: http://www.vlfeat.org/applications/caltech-101-code.html
 [6]: http://www.vlfeat.org/index.html
-[7]: https://github.com/shackenberg/phow_caltech101.py/blob/master/phow_caltech10
+[7]: https://github.com/shackenberg/phow_caltech101.py/blob/master/phow_caltech101.py#L58
+[8]: https:
