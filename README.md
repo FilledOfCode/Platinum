@@ -46,4 +46,4 @@ Requisite:
 [1]: http://www.vlfeat.org/applications/caltech-101-code.html
 [6]: http://www.vlfeat.org/index.html
 [7]: https://github.com/shackenberg/phow_caltech101.py/blob/master/phow_caltech101.py#L58
-[8]: https://github.com/f
+[8]: https://github.com/fchollet/keras
