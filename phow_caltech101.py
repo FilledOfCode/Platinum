@@ -39,3 +39,14 @@ class Configuration(object):
         self.dataDir = 'tempresults'  # should be resultDir or so
         if not exists(self.dataDir):
             makedirs(self.dataDir)
+            print "folder " + self.dataDir + " created"
+        self.autoDownloadData = True
+        self.numTrain = 15
+        self.numTest = 15
+        self.imagesperclass = self.numTrain + self.numTest
+        self.numClasses = 102
+        self.numWords = 600
+        self.numSpatialX = [2, 4]
+        self.numSpatialY = [2, 4]
+        self.quantizer = 'vq'  # kdtree from the .m version not implemented
+        self.svm = SVMParameters(C=10)
