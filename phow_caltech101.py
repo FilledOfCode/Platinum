@@ -22,3 +22,20 @@ from datetime import datetime
 from sklearn.kernel_approximation import AdditiveChi2Sampler
 from cPickle import dump, load
 
+
+IDENTIFIER = '05.04.13'
+SAVETODISC = False
+FEATUREMAP = True
+OVERWRITE = False  # DON'T load mat files genereated with a different seed!!!
+SAMPLE_SEED = 42
+TINYPROBLEM = False
+VERBOSE = True  # set to 'SVM' if you want to get the svm output
+MULTIPROCESSING = False
+
+
+class Configuration(object):
+    def __init__(self, identifier=''):
+        self.calDir = '../../../datasets/Caltech/101_ObjectCategories'
+        self.dataDir = 'tempresults'  # should be resultDir or so
+        if not exists(self.dataDir):
+            makedirs(self.dataDir)
