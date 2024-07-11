@@ -50,3 +50,21 @@ class Configuration(object):
         self.numSpatialY = [2, 4]
         self.quantizer = 'vq'  # kdtree from the .m version not implemented
         self.svm = SVMParameters(C=10)
+        self.phowOpts = PHOWOptions(Verbose=False, Sizes=[4, 6, 8, 10], Step=3)
+        self.clobber = False
+        self.tinyProblem = TINYPROBLEM
+        self.prefix = 'baseline'
+        self.randSeed = 1
+        self.verbose = True
+        self.extensions = [".jpg", ".bmp", ".png", ".pgm", ".tif", ".tiff"]
+        self.images_for_histogram = 30
+        self.numbers_of_features_for_histogram = 100000
+        
+        self.vocabPath = join(self.dataDir, identifier + '-vocab.py.mat')
+        self.histPath = join(self.dataDir, identifier + '-hists.py.mat')
+        self.modelPath = join(self.dataDir, self.prefix + identifier + '-model.py.mat')
+        self.resultPath = join(self.dataDir, self.prefix + identifier + '-result')
+        
+        if self.tinyProblem:
+            print "Using 'tiny' protocol with different parameters than the .m code"
+            self.prefix = 'tiny'
