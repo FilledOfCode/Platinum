@@ -68,3 +68,12 @@ class Configuration(object):
         if self.tinyProblem:
             print "Using 'tiny' protocol with different parameters than the .m code"
             self.prefix = 'tiny'
+            self.numClasses = 5
+            self.images_for_histogram = 10
+            self.numbers_of_features_for_histogram = 1000
+            self.numTrain
+            self.numSpatialX = 2
+            self.numWords = 100
+            self.numTrain = 2
+            self.numTest = 2
+            self.phowOpts = PHOWOptions(Verbose=2, Sizes=7, Step=5)
