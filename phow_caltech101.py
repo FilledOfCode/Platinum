@@ -77,3 +77,17 @@ class Configuration(object):
             self.numTrain = 2
             self.numTest = 2
             self.phowOpts = PHOWOptions(Verbose=2, Sizes=7, Step=5)
+
+        # tests and conversions
+        self.phowOpts.Sizes = ensure_type_array(self.phowOpts.Sizes)
+        self.numSpatialX = ensure_type_array(self.numSpatialX)
+        self.numSpatialY = ensure_type_array(self.numSpatialY)
+        if (self.numSpatialX != self.numSpatialY).any():
+            messageformat = [str(self.numSpatialX), str(self.numSpatialY)]
+            message = "(self.numSpatialX != self.numSpatialY), because {0} != {1}".format(*messageformat)
+            raise ValueError(message)
+
+
+def ensure_type_array(data):
+    if (type(data) is not ndarray):
+        if (type(data) is list):
