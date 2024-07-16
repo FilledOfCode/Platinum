@@ -111,3 +111,8 @@ def standarizeImage(im):
 
 def getPhowFeatures(imagedata, phowOpts):
     im = standarizeImage(imagedata)
+    frames, descrs = vl_phow(im,
+                             verbose=phowOpts.Verbose,
+                             sizes=phowOpts.Sizes,
+                             step=phowOpts.Step)
+    return frames, descrs
