@@ -91,3 +91,12 @@ class Configuration(object):
 def ensure_type_array(data):
     if (type(data) is not ndarray):
         if (type(data) is list):
+            data = array(data)
+        else:
+            data = array([data])
+    return data
+
+
+def standarizeImage(im):
+    im = array(im, 'float32') 
+    if im.shape[0] > 480:
