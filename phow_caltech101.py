@@ -100,3 +100,14 @@ def ensure_type_array(data):
 def standarizeImage(im):
     im = array(im, 'float32') 
     if im.shape[0] > 480:
+        resize_factor = 480.0 / im.shape[0]  # don't remove trailing .0 to avoid integer devision
+        im = imresize(im, resize_factor)
+    if amax(im) > 1.1:
+        im = im / 255.0
+    assert((amax(im) > 0.01) & (amax(im) <= 1))
+    assert((amin(im) >= 0.00))
+    return im
+
+
+def getPhowFeatures(imagedata, phowOpts):
+    im = standarizeImage(imagedata)
