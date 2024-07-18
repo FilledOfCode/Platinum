@@ -116,3 +116,21 @@ def getPhowFeatures(imagedata, phowOpts):
                              sizes=phowOpts.Sizes,
                              step=phowOpts.Step)
     return frames, descrs
+
+
+def getImageDescriptor(model, im):
+    im = standarizeImage(im)
+    height, width = im.shape[:2]
+    numWords = model.vocab.shape[1]
+
+    frames, descrs = getPhowFeatures(im, conf.phowOpts)
+    # quantize appearance
+    if model.quantizer == 'vq':
+        binsa, _ = vq(descrs.T, model.vocab.T)
+    elif model.quantizer == 'kdtree':
+        raise ValueError('quantizer kdtree not implemented')
+    else:
+        raise ValueError('quantizer {0} not known or understood'.format(model.quantizer))
+
+    hist = []
+    for n_spatial_bins_x, n_spatial_bins_y in zip(model.numSpatialX, model.numSpatialX):
