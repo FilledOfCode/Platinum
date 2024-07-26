@@ -134,3 +134,18 @@ def getImageDescriptor(model, im):
 
     hist = []
     for n_spatial_bins_x, n_spatial_bins_y in zip(model.numSpatialX, model.numSpatialX):
+        binsx, distsx = vq(frames[0, :], linspace(0, width, n_spatial_bins_x))
+        binsy, distsy = vq(frames[1, :], linspace(0, height, n_spatial_bins_y))
+        # binsx and binsy list to what spatial bin each feature point belongs to
+        if (numpy.any(distsx < 0)) | (numpy.any(distsx > (width/n_spatial_bins_x+0.5))):
+            print 'something went wrong'
+            import pdb; pdb.set_trace()
+        if (numpy.any(distsy < 0)) | (numpy.any(distsy > (height/n_spatial_bins_y+0.5))):
+            print 'something went wrong'
+            import pdb; pdb.set_trace()
+
+        # combined quantization
+        number_of_bins = n_spatial_bins_x * n_spatial_bins_y * numWords
+        temp = arange(number_of_bins)
+        # update using this: http://stackoverflow.com/questions/15230179/how-to-get-the-linear-index-for-a-numpy-array-sub2ind
+        temp = temp.reshape([n_spatial_bins_x, n_spatial_bins_y, numWords])
