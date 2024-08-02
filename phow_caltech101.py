@@ -149,3 +149,14 @@ def getImageDescriptor(model, im):
         temp = arange(number_of_bins)
         # update using this: http://stackoverflow.com/questions/15230179/how-to-get-the-linear-index-for-a-numpy-array-sub2ind
         temp = temp.reshape([n_spatial_bins_x, n_spatial_bins_y, numWords])
+        bin_comb = temp[binsx, binsy, binsa]
+        hist_temp, _ = histogram(bin_comb, bins=range(number_of_bins+1), density=True)
+        hist.append(hist_temp)
+
+    hist = hstack(hist)
+    hist = array(hist, 'float32') / sum(hist)
+    return hist
+
+
+class Model(object):
+    def __init__(self, classes, conf, vocab=None):
