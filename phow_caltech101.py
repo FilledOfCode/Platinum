@@ -174,3 +174,17 @@ class SVMParameters(object):
 
 
 class PHOWOptions(object):
+    def __init__(self, Verbose, Sizes, Step):
+        self.Verbose = Verbose
+        self.Sizes = Sizes
+        self.Step = Step
+
+
+def get_classes(datasetpath, numClasses):
+    classes_paths = [files
+                     for files in glob(datasetpath + "/*")
+                     if isdir(files)]
+    classes_paths.sort()
+    classes = [basename(class_path) for class_path in classes_paths]
+    if len(classes) == 0:
+       raise ValueError('no classes found')
