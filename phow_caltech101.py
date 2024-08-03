@@ -160,3 +160,17 @@ def getImageDescriptor(model, im):
 
 class Model(object):
     def __init__(self, classes, conf, vocab=None):
+        self.classes = classes
+        self.phowOpts = conf.phowOpts
+        self.numSpatialX = conf.numSpatialX
+        self.numSpatialY = conf.numSpatialY
+        self.quantizer = conf.quantizer
+        self.vocab = vocab
+
+
+class SVMParameters(object):
+    def __init__(self, C):
+        self.C = C
+
+
+class PHOWOptions(object):
