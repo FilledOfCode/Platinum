@@ -210,3 +210,18 @@ def showconfusionmatrix(cm):
 
 
 def get_all_images(classes, conf):
+    all_images = []
+    all_images_class_labels = []
+    for i, imageclass in enumerate(classes):
+        path = join(conf.calDir, imageclass)
+        extensions = conf.extensions
+        imgs = get_imgfiles(path, extensions)
+        if len(imgs) == 0:
+            raise ValueError('no images for class ' + str(imageclass))
+        imgs = sample(imgs, conf.imagesperclass)
+        all_images = all_images + imgs
+        class_labels = list(i * ones(conf.imagesperclass))
+        all_images_class_labels = all_images_class_labels + class_labels
+
+    all_images_class_labels = array(all_images_class_labels, 'int')
+    return all_images, all_images_class_labels
