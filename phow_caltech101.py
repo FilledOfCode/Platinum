@@ -199,3 +199,14 @@ def get_imgfiles(path, extensions):
     all_files.extend([join(path, basename(fname))
                      for fname in glob(path + "/*")
                      if splitext(fname)[-1].lower() in extensions])
+    return all_files
+
+
+def showconfusionmatrix(cm):
+    pl.matshow(cm)
+    pl.title('Confusion matrix')
+    pl.colorbar()
+    pl.show()
+
+
+def get_all_images(classes, conf):
