@@ -225,3 +225,14 @@ def get_all_images(classes, conf):
 
     all_images_class_labels = array(all_images_class_labels, 'int')
     return all_images, all_images_class_labels
+
+
+def create_split(all_images, conf):
+    temp = mod(arange(len(all_images)), conf.imagesperclass) < conf.numTrain
+    selTrain = where(temp == True)[0]
+    selTest = where(temp == False)[0]
+    # the '[0]' is there, because 'where' returns tuples, don't know why....
+    # the use of the 'temp' variable is not pythonic, but we need the indices 
+    # not a boolean array. See Matlab code
+    return selTrain, selTest
+
