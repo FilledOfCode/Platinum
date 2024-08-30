@@ -253,3 +253,13 @@ def trainVocab(selTrain, all_images, conf):
     
     descrs = hstack(descrs)
     n_features = descrs.shape[1]
+    sample_indices = sample(arange(n_features), conf.numbers_of_features_for_histogram)
+    descrs = descrs[:, sample_indices]
+    descrs = array(descrs, 'uint8')
+    
+    # Quantize the descriptors to get the visual words
+    vocab, _ = vl_ikmeans(descrs,
+                          K=conf.numWords,
+                          verbose=conf.verbose,
+                          method='elkan')
+    return vocab
