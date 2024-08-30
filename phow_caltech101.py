@@ -236,3 +236,14 @@ def create_split(all_images, conf):
     # not a boolean array. See Matlab code
     return selTrain, selTest
 
+
+def trainVocab(selTrain, all_images, conf):
+    selTrainFeats = sample(selTrain, conf.images_for_histogram)
+    descrs = []
+    if MULTIPROCESSING:
+        raise ValueError('MULTIPROCESSING not implemented')
+        #pool = Pool(processes=30)  
+        #list_of_train_images = [all_images[i] for i in selTrainFeats]
+        #descrs.append(pool.map_async(getPhowFeatures, list_of_train_images).get())        
+    else:
+        for i in selTrainFeats:
