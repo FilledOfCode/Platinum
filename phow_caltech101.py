@@ -247,3 +247,9 @@ def trainVocab(selTrain, all_images, conf):
         #descrs.append(pool.map_async(getPhowFeatures, list_of_train_images).get())        
     else:
         for i in selTrainFeats:
+            im = imread(all_images[i])
+            descrs.append(getPhowFeatures(im, conf.phowOpts)[1])
+            # the '[1]' is there because we only want the descriptors and not the frames
+    
+    descrs = hstack(descrs)
+    n_features = descrs.shape[1]
