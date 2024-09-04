@@ -278,3 +278,13 @@ def computeHistograms(all_images, model, conf):
 
 ###############
 # Main Programm
+###############
+
+if __name__ == '__main__':
+    seed(SAMPLE_SEED)
+    conf = Configuration(IDENTIFIER)
+    if VERBOSE: print str(datetime.now()) + ' finished conf'
+
+    classes = get_classes(conf.calDir, conf.numClasses)
+
+    model = Model(classes, conf)
