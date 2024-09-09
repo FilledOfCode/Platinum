@@ -333,3 +333,16 @@ if __name__ == '__main__':
     ###########
     # Train SVM
     ###########
+    if (not exists(conf.modelPath)) | OVERWRITE:
+        if VERBOSE: print str(datetime.now()) + ' training liblinear svm'
+        if VERBOSE == 'SVM':
+            verbose = True
+        else:
+            verbose = False
+        clf = svm.LinearSVC(C=conf.svm.C)
+        if VERBOSE: print clf
+        clf.fit(train_data, all_images_class_labels[selTrain])
+        with open(conf.modelPath, 'wb') as fp:
+            dump(clf, fp)
+    else:
+        if VERBOSE: print 'loading old SVM model'
