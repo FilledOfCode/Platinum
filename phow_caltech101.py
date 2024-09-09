@@ -302,3 +302,14 @@ if __name__ == '__main__':
     if (not exists(conf.vocabPath)) | OVERWRITE:
         vocab = trainVocab(selTrain, all_images, conf)    
         savemat(conf.vocabPath, {'vocab': vocab})
+    else:
+        if VERBOSE: print 'using old vocab from ' + conf.vocabPath
+        vocab = loadmat(conf.vocabPath)['vocab']
+    model.vocab = vocab
+
+
+    ############################
+    # Compute spatial histograms
+    ############################
+    if VERBOSE: print str(datetime.now()) + ' start computing hists'
+    if (not exists(conf.histPath)) | OVERWRITE:
