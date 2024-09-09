@@ -313,3 +313,15 @@ if __name__ == '__main__':
     ############################
     if VERBOSE: print str(datetime.now()) + ' start computing hists'
     if (not exists(conf.histPath)) | OVERWRITE:
+        hists = computeHistograms(all_images, model, conf)
+        savemat(conf.histPath, {'hists': hists})
+    else:
+        if VERBOSE: print 'using old hists from ' + conf.histPath
+        hists = loadmat(conf.histPath)['hists']
+
+
+    #####################
+    # Compute feature map
+    #####################
+    if VERBOSE: print str(datetime.now()) + ' start computing feature map'
+    transformer = AdditiveChi2Sampler()
