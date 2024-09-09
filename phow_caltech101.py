@@ -325,3 +325,11 @@ if __name__ == '__main__':
     #####################
     if VERBOSE: print str(datetime.now()) + ' start computing feature map'
     transformer = AdditiveChi2Sampler()
+    histst = transformer.fit_transform(hists)
+    train_data = histst[selTrain]
+    test_data = histst[selTest]
+
+    
+    ###########
+    # Train SVM
+    ###########
