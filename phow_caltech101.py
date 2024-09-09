@@ -288,3 +288,17 @@ if __name__ == '__main__':
     classes = get_classes(conf.calDir, conf.numClasses)
 
     model = Model(classes, conf)
+    
+    all_images, all_images_class_labels = get_all_images(classes, conf)
+    selTrain, selTest = create_split(all_images, conf)
+
+    if VERBOSE: print str(datetime.now()) + ' found classes and created split '
+
+
+    ##################
+    # Train vocabulary
+    ##################
+    if VERBOSE: print str(datetime.now()) + ' start training vocab'
+    if (not exists(conf.vocabPath)) | OVERWRITE:
+        vocab = trainVocab(selTrain, all_images, conf)    
+        savemat(conf.vocabPath, {'vocab': vocab})
