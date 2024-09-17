@@ -346,3 +346,16 @@ if __name__ == '__main__':
             dump(clf, fp)
     else:
         if VERBOSE: print 'loading old SVM model'
+        with open(conf.modelPath, 'rb') as fp:
+            clf = load(fp)
+
+    ##########
+    # Test SVM
+    ##########   
+    if (not exists(conf.resultPath)) | OVERWRITE:
+        if VERBOSE: print str(datetime.now()) + ' testing svm'
+        predicted_classes = clf.predict(test_data)
+        true_classes = all_images_class_labels[selTest]
+        accuracy = accuracy_score(true_classes, predicted_classes)
+        cm = confusion_matrix(predicted_classes, true_classes)
+        with open(conf.resultPath, 'wb') as fp:
