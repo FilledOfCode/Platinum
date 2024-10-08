@@ -359,3 +359,18 @@ if __name__ == '__main__':
         accuracy = accuracy_score(true_classes, predicted_classes)
         cm = confusion_matrix(predicted_classes, true_classes)
         with open(conf.resultPath, 'wb') as fp:
+            dump(conf, fp)
+            dump(cm, fp)
+            dump(predicted_classes, fp)
+            dump(true_classes, fp)
+            dump(accuracy, fp)
+    else:
+        with open(conf.resultPath, 'rb') as fp:
+            conf = load(fp)
+            cm = load(fp)
+            predicted_classes = load(fp)
+            true_classes = load(fp)
+            accuracy = load(fp)
+    
+
+    ################
