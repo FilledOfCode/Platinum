@@ -5,3 +5,14 @@ from sys import maxint
 
 """
 Python rewrite of https://github.com/vlfeat/vlfeat/blob/master/toolbox/sift/vl_phow.m
+### notice no hsv support atm
+### comments are largely copied from the code
+
+"""
+
+
+def vl_phow(im,
+            verbose=True,
+            fast=True,
+            sizes=[4, 6, 8, 10],
+            step=2,
