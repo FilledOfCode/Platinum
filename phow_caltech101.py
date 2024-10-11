@@ -374,3 +374,8 @@ if __name__ == '__main__':
     
 
     ################
+    # Output Results
+    ################         
+    print "accuracy =" + str(accuracy)
+    print cm
+    showconfusionmatrix(cm)
