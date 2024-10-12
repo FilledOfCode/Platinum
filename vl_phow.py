@@ -16,3 +16,18 @@ def vl_phow(im,
             fast=True,
             sizes=[4, 6, 8, 10],
             step=2,
+            color='rgb',
+            floatdescriptors=False,
+            magnif=6,
+            windowsize=1.5,
+            contrastthreshold=0.005):
+
+    opts = Options(verbose, fast, sizes, step, color, floatdescriptors,
+                   magnif, windowsize, contrastthreshold)
+    dsiftOpts = DSiftOptions(opts)
+
+    # make sure image is float, otherwise segfault
+    im = array(im, 'float32')
+
+    # Extract the features
+    imageSize = shape(im)
