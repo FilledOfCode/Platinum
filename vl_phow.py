@@ -56,3 +56,12 @@ def vl_phow(im,
 
             mu = 0.3 * im[:, :, 0] + 0.59 * im[:, :, 1] + 0.11 * im[:, :, 2]
             alpha = 0.01
+            im = dstack([mu,
+                         (im[:, :, 0] - im[:, :, 1]) / sqrt(2) + alpha * mu,
+                         (im[:, :, 0] + im[:, :, 1] - 2 * im[:, :, 2]) / sqrt(6) + alpha * mu])
+        else:
+            raise ValueError('Color option ' + str(opts.color) + ' not recognized')
+    if opts.verbose:
+        print('{0}: color space: {1}'.format('vl_phow', opts.color))
+        print('{0}: image size: {1} x {2}'.format('vl_phow', imageSize[0], imageSize[1]))
+        print('{0}: sizes: [{1}]'.format('vl_phow', opts.sizes))
