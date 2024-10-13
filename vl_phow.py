@@ -31,3 +31,16 @@ def vl_phow(im,
 
     # Extract the features
     imageSize = shape(im)
+    if im.ndim == 3:
+        if imageSize[2] != 3:
+            # "IndexError: tuple index out of range" if both if's are checked at the same time
+            raise ValueError("Image data in unknown format/shape")
+    if opts.color == 'gray':
+        numChannels = 1
+        if (im.ndim == 2):
+            im = vl_rgb2gray(im)
+    else:
+        numChannels = 3
+        if (im.ndim == 2):
+            im = dstack([im, im, im])
+        if opts.color == 'rgb':
