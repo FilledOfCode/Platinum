@@ -44,3 +44,15 @@ def vl_phow(im,
         if (im.ndim == 2):
             im = dstack([im, im, im])
         if opts.color == 'rgb':
+            pass
+        elif opts.color == 'opponent':
+             # from https://github.com/vlfeat/vlfeat/blob/master/toolbox/sift/vl_phow.m
+             # Note that the mean differs from the standard definition of opponent
+             # space and is the regular intesity (for compatibility with
+             # the contrast thresholding).
+             # Note also that the mean is added pack to the other two
+             # components with a small multipliers for monochromatic
+             # regions.
+
+            mu = 0.3 * im[:, :, 0] + 0.59 * im[:, :, 1] + 0.11 * im[:, :, 2]
+            alpha = 0.01
