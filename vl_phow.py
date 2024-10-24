@@ -65,3 +65,21 @@ def vl_phow(im,
         print('{0}: color space: {1}'.format('vl_phow', opts.color))
         print('{0}: image size: {1} x {2}'.format('vl_phow', imageSize[0], imageSize[1]))
         print('{0}: sizes: [{1}]'.format('vl_phow', opts.sizes))
+
+    frames_all = []
+    descrs_all = []
+    for size_of_spatial_bins in opts.sizes:
+        # from https://github.com/vlfeat/vlfeat/blob/master/toolbox/sift/vl_phow.m
+        # Recall from VL_DSIFT() that the first descriptor for scale SIZE has
+        # center located at XC = XMIN + 3/2 SIZE (the Y coordinate is
+        # similar). It is convenient to align the descriptors at different
+        # scales so that they have the same geometric centers. For the
+        # maximum size we pick XMIN = 1 and we get centers starting from
+        # XC = 1 + 3/2 MAX(OPTS.SIZES). For any other scale we pick XMIN so
+        # that XMIN + 3/2 SIZE = 1 + 3/2 MAX(OPTS.SIZES).
+        # In pracrice, the offset must be integer ('bounds'), so the
+        # alignment works properly only if all OPTS.SZES are even or odd.
+
+        off = floor(3.0 / 2 * (max(opts.sizes) - size_of_spatial_bins)) + 1
+
+        # smooth the image to the appropriate scale based on the size
