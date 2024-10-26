@@ -83,3 +83,17 @@ def vl_phow(im,
         off = floor(3.0 / 2 * (max(opts.sizes) - size_of_spatial_bins)) + 1
 
         # smooth the image to the appropriate scale based on the size
+        # of the SIFT bins
+        sigma = size_of_spatial_bins / float(opts.magnif)
+        ims = vl_imsmooth(im, sigma)
+
+        # extract dense SIFT features from all channels
+        frames = []
+        descrs = []
+        for k in range(numChannels):
+            size_of_spatial_bins = int(size_of_spatial_bins)
+            # vl_dsift does not accept numpy.int64 or similar
+            f_temp, d_temp = vl_dsift(data=ims[:, :, k],
+                                      step=dsiftOpts.step,
+                                      size=size_of_spatial_bins,
+                                      fast=dsiftOpts.fast,
