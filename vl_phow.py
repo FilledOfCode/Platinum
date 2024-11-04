@@ -97,3 +97,21 @@ def vl_phow(im,
                                       step=dsiftOpts.step,
                                       size=size_of_spatial_bins,
                                       fast=dsiftOpts.fast,
+                                      verbose=dsiftOpts.verbose,
+                                      norm=dsiftOpts.norm,
+                                      bounds=[off, off, maxint, maxint])
+            frames.append(f_temp)
+            descrs.append(d_temp)
+        frames = array(frames)
+        descrs = array(descrs)
+        d_new_shape = [descrs.shape[0] * descrs.shape[1], descrs.shape[2]]
+        descrs = descrs.reshape(d_new_shape)
+        # remove low contrast descriptors
+        # note that for color descriptors the V component is
+        # thresholded
+        if (opts.color == 'gray') | (opts.color == 'opponent'):
+            contrast = frames[0][2, :]
+        elif opts.color == 'rgb':
+            contrast = mean([frames[0][2, :], frames[1][2, :], frames[2][2, :]], 0)
+        else:
+            raise ValueError('Color option ' + str(opts.color) + ' not recognized')
