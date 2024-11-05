@@ -123,3 +123,15 @@ def vl_phow(im,
         frames_all.append(vstack([frames_temp, padding]))
         descrs_all.append(array(descrs))
 
+
+    frames_all = hstack(frames_all)
+    descrs_all = hstack(descrs_all)
+    return frames_all, descrs_all
+
+
+class Options(object):
+    def __init__(self, verbose, fast, sizes, step, color,
+                 floatdescriptors, magnif, windowsize,
+                 contrastthreshold):
+        self.verbose = verbose
+        self.fast = fast
