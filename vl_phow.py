@@ -115,3 +115,11 @@ def vl_phow(im,
             contrast = mean([frames[0][2, :], frames[1][2, :], frames[2][2, :]], 0)
         else:
             raise ValueError('Color option ' + str(opts.color) + ' not recognized')
+        descrs[:, contrast < opts.contrastthreshold] = 0
+
+        # save only x,y, and the scale
+        frames_temp = array(frames[0][0:3, :])
+        padding = array(size_of_spatial_bins * ones(frames[0][0].shape))
+        frames_all.append(vstack([frames_temp, padding]))
+        descrs_all.append(array(descrs))
+
