@@ -135,3 +135,15 @@ class Options(object):
                  contrastthreshold):
         self.verbose = verbose
         self.fast = fast
+        if (type(sizes) is not ndarray) & (type(sizes) is not list):
+            sizes = array([sizes])
+        self.sizes = sizes
+        self.step = step
+        self.color = color
+        self.floatdescriptors = floatdescriptors
+        self.magnif = magnif
+        self.windowsize = windowsize
+        self.contrastthreshold = contrastthreshold
+
+
+class DSiftOptions(object):
