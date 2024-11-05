@@ -147,3 +147,15 @@ class Options(object):
 
 
 class DSiftOptions(object):
+    def __init__(self, opts):
+        self.norm = True
+        self.windowsize = opts.windowsize
+        self.verbose = opts.verbose
+        self.fast = opts.fast
+        self.floatdescriptors = opts.floatdescriptors
+        self.step = opts.step
+
+if __name__ == "__main__":
+    from scipy.misc import imread 
+    im = imread('image_0001.jpg')
+    frames, descrs = vl_phow(array(im, 'float32') / 255.0)    
